@@ -34,23 +34,23 @@ Add a new entry at the **top** of [_data/publications.yml](_data/publications.ym
 ```yaml
 - authors:
     - "@Han, L."            # @ prefix = Lifeng, rendered bold
-    - "*Student, N."        # * prefix = mentored student, rendered underlined + dagger
+    - "*Student, N."        # * prefix = mentored student, rendered with superscript dagger
     - "Coauthor, A. B."     # no prefix = regular coauthor
   title: "..."
   venue: "..."
   year: 2027
   volume: "41(2)"           # optional
   pages: "35-52"            # optional
-  doi: "10.xxxx/yyyy"       # optional; renders as muted `doi:...` and makes title clickable
+  doi: "10.xxxx/yyyy"       # optional; makes the title a clickable DOI link
 ```
 
-The template in [index.md](index.md) parses the sigils and wraps names appropriately. The `† denotes student mentee` footnote is hardcoded below the list.
+The template in [index.md](index.md) parses the sigils and wraps names appropriately. The `† student mentee` footnote is hardcoded below the list.
 
 ## Publications design conventions
 
-- Titles are the clickable DOI link, but styled as plain black text — accent color (red) only appears on hover. This is intentional to avoid a "wall of red" reading experience. The DOI also appears after the entry as muted unlinked `doi:...` text for reference.
+- Titles are the clickable DOI link, but styled as plain black text — accent color (red) only appears on hover. This is intentional to avoid a "wall of red" reading experience. The DOI is not rendered as separate text; the title link is the only DOI surface.
 - Lifeng's name: bold via `@` sigil.
-- Student mentees: underlined + superscript dagger via `*` sigil. One footnote explains the dagger.
+- Student mentees: superscript dagger via `*` sigil (no underline). One footnote explains the dagger.
 - Sort order: manual, newest first in the YAML.
 
 ## What not to touch without asking

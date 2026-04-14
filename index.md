@@ -31,11 +31,11 @@ Under the advise of [Prof John Fricks](http://www.johnfricks.org/), I have devel
         {{ author }}
       {%- endif -%}
       {%- unless forloop.last %}, {% endunless -%}
-    {%- endfor %} ({{ pub.year }}). {% if pub.doi %}<a href="https://doi.org/{{ pub.doi }}">{{ pub.title }}</a>{% else %}{{ pub.title }}{% endif %}. <em>{{ pub.venue }}</em>{% if pub.volume %}, {{ pub.volume }}{% endif %}{% if pub.pages %}, {{ pub.pages }}{% endif %}.{% if pub.doi %} <span class="pub-doi">doi:{{ pub.doi }}</span>{% endif %}
+    {%- endfor %} ({{ pub.year }}). {% if pub.doi %}<a href="https://doi.org/{{ pub.doi }}">{{ pub.title }}</a>{% else %}{{ pub.title }}{% endif %}. <em>{{ pub.venue }}</em>{% if pub.volume %}, {{ pub.volume }}{% endif %}{% if pub.pages %}, {{ pub.pages }}{% endif %}.
   </li>
 {% endfor %}
 </ol>
 
-<p><small><sup>&dagger;</sup> denotes student mentee</small></p>
+<p><small><sup>&dagger;</sup> student mentee</small></p>
 
 <br>

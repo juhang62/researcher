@@ -12,13 +12,6 @@ ol.publications {
         color: $accent;
         text-decoration: underline;
     }
-    .student-author {
-        text-decoration: underline;
-    }
-    .pub-doi {
-        color: #888;
-        font-size: 0.9em;
-    }
 }
 
 /*
@@ -37,9 +30,10 @@ body {
 }
 a {
     text-decoration: none;
-    color: $accent;
+    color: $link;
 }
 a:hover {
+    color: $link-hover;
     text-decoration: underline;
 }
 hr {
