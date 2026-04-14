@@ -4,8 +4,8 @@ Personal academic website for Lifeng Han (Professor of Practice, Tulane Math), d
 
 ## Branches
 
-- `gh-pages` — what's deployed.
-- `redesign` — current working branch for the minimalist-academic redesign. New SCSS tokens, sticky header with hamburger, accessible nav, etc. Don't merge to `gh-pages` until the redesign is signed off.
+- `main` — single working branch and the GitHub default. Holds the current redesign and is the source of truth for both local edits and the production build that gets uploaded to the Tulane math server.
+- `pre-redesign` (tag, not a branch) — points at commit `42649af`, the last state of the old `gh-pages` branch before the minimalist redesign. Kept as a record so the previous design can be inspected or restored with `git checkout pre-redesign`. The old `gh-pages` branch itself has been deleted both locally and on `origin`.
 
 ## Local build / serve
 
