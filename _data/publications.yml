@@ -1,0 +1,126 @@
+- authors:
+    - "@Han, L."
+    - "Liu, J."
+    - "Yuan, Y."
+    - "*Zhang, S."
+    - "Zhu, H."
+    - "Xiong, Y."
+  title: "A close look at the viral reduction rate in target cell limited models"
+  venue: "Mathematical Biosciences and Engineering"
+  year: 2026
+  volume: "23(5)"
+  pages: "1437-1460"
+  doi: "10.3934/mbe.2026053"
+
+- authors:
+    - "@Han, L."
+    - "Fricks, J."
+  title: "A Semi-Markov Approach to Study a Group of Kinesin Motors"
+  venue: "Bulletin of Mathematical Biology"
+  year: 2024
+  volume: "86(2)"
+  pages: "15"
+  doi: "10.1007/s11538-023-01241-5"
+
+- authors:
+    - "@Han, L."
+    - "Yogurtcu, O. N."
+    - "Rodriguez Messan, M."
+    - "Valega-Mackenzie, W."
+    - "Nukala, U."
+    - "Yang, H."
+  title: "Dosage optimization for reducing tumor burden using a phenotype-structured population model with a drug-resistance continuum"
+  venue: "Mathematical Medicine and Biology: A Journal of the IMA"
+  year: 2024
+  volume: "41(1)"
+  pages: "35-52"
+  doi: "10.1093/imammb/dqae003"
+
+- authors:
+    - "He, C."
+    - "@Han, L."
+    - "Harris, D. C."
+    - "Bayakhmetov, S."
+    - "Wang, X."
+    - "Kuang, Y."
+  title: "Reaction-Diffusion Modeling of E. coli Colony Growth Based on Nutrient Distribution and Agar Dehydration"
+  venue: "Bulletin of Mathematical Biology"
+  year: 2023
+  volume: "85(7)"
+  pages: "61"
+  doi: "10.1007/s11538-023-01163-2"
+
+- authors:
+    - "@Han, L."
+    - "Rodriguez Messan, M."
+    - "Yogurtcu, O. N."
+    - "Nukala, U."
+    - "Yang, H."
+  title: "Analysis of tumor-immune functional responses in a mathematical model of neoantigen cancer vaccines"
+  venue: "Mathematical Biosciences"
+  year: 2023
+  volume: "356"
+  pages: "108966"
+  doi: "10.1016/j.mbs.2023.108966"
+
+- authors:
+    - "@Han, L."
+    - "He, C."
+    - "Dinh, H."
+    - "Fricks, J."
+    - "Kuang, Y."
+  title: "Learning Biological Dynamics From Spatio-Temporal Data by Gaussian Processes"
+  venue: "Bulletin of Mathematical Biology"
+  year: 2022
+  volume: "84(7)"
+  pages: "1-20"
+  doi: "10.1007/s11538-022-01022-6"
+
+- authors:
+    - "Goeschl, J. D."
+    - "@Han, L."
+  title: "A Proposed Drought Response Equation Added to the Münch-Horwitz Theory of Phloem Transport"
+  venue: "Frontiers in Plant Science"
+  year: 2020
+  volume: "11"
+  doi: "10.3389/fpls.2020.505153"
+
+- authors:
+    - "@Han, L."
+    - "He, C."
+    - "Kuang, Y."
+  title: "Dynamics of a model of tumor-immune interaction with time delay and noise"
+  venue: "Discrete & Continuous Dynamical Systems - S"
+  year: 2020
+  volume: "13(9)"
+  pages: "2347-2363"
+  doi: "10.3934/dcdss.2020140"
+
+- authors:
+    - "@Han, L."
+    - "Eikenberry, S."
+    - "He, C."
+    - "Johnson, L."
+    - "Preul, M. C."
+    - "Kostelich, E. J."
+    - "Kuang, Y."
+  title: "Patient-specific parameter estimates of glioblastoma multiforme growth dynamics from a model with explicit birth and death rates"
+  venue: "Mathematical Biosciences and Engineering"
+  year: 2019
+  volume: "16(5)"
+  pages: "5307-5323"
+  doi: "10.3934/mbe.2019265"
+
+- authors:
+    - "Ohashi, K. G."
+    - "@Han, L."
+    - "Mentley, B."
+    - "Wang, J."
+    - "Fricks, J."
+    - "Hancock, W. O."
+  title: "Load-dependent detachment kinetics plays a key role in bidirectional cargo transport by kinesin and dynein"
+  venue: "Traffic"
+  year: 2019
+  volume: "20(4)"
+  pages: "284-294"
+  doi: "10.1111/tra.12639"

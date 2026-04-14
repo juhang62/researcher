@@ -4,42 +4,38 @@ layout: default
 
 ## About Me
 
-<img class="profile-picture" src="sherlock.jpg">
+Hi! I am a professor of practice at Tulane University. I graduated with my PhD in [applied math from Arizona State University](https://math.asu.edu/degrees/graduate/applied-mathematics-phd).
 
-Hi! I am a junior year student of B.E. Computer Science at Birla Institute of Technology and Science, Pilani.
-
-This is a jekyll based resume template. You can find the full source code on [GitHub](https://github.com/bk2dcradle/researcher)
+## Teaching
+At Tulane University, I teach and coordinate Math 1230: Statistics for Scientists. My teaching emphasizes critical and quantitative thinking, using relatable examples to engage students and deepen their understanding of probability and statistics. I integrate technology, such as Gradescope, to enhance learning efficiency while maintaining a strong focus on human interaction. In my classroom, I encourage active participation through hands-on activities, flipped classrooms, and discussions that challenge assumptions. My goal is to equip students with the analytical skills they need to navigate an increasingly data-driven world. See [this blog post](https://juhang62.github.io/normal-gender-imbalance-DEI/) for example on how I teach students to use normal distribution to reflect on DEI policies.
 
 ## Research Interest
+My research is in mathematical biology.  During my postdoctoral work at the FDA, I employed mathematical modeling to gain insights into cancer biology and its treatment.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam finibus ipsum ac erat aliquam dapibus. Vestibulum vehicula placerat ex, a consectetur odio pharetra quis. Mauris id urna ante. Fusce pharetra diam ac nisi aliquet, vel egestas ex iaculis. Pellentesque laoreet cursus tellus sed pellentesque. Praesent a rhoncus elit. Nunc ipsum nisl, consequat sit amet pretium quis, gravida id ipsum.
+For my PhD, I studied cancer using mathematical models with a focus on temporal and spatial dynamics that arises from time delay and stochasticity. As part of the group of [Prof Yang Kuang](https://math.la.asu.edu/~kuang/) and [Prof Eric Kostelich](https://math.la.asu.edu/~eric/), I have worked on extracting digital markers from MRI data to infer patient-specific parameters for a partial differential equation model.
+
+Under the advise of [Prof John Fricks](http://www.johnfricks.org/), I have developed a computationally efficient method to get asymptotic velocity and diffusivity of a group of motors.
 
 ## Publications
 
-1. F.Bar, J.Doe: Effects of having a placeholder of a name
-2. S.Holmes, J.Watson: Consequences of living with a sociopath in London
+<ol class="publications">
+{% for pub in site.data.publications %}
+  <li>
+    {%- for author in pub.authors -%}
+      {%- assign sigil = author | slice: 0, 1 -%}
+      {%- if sigil == "@" -%}
+        <strong>{{ author | remove_first: "@" }}</strong>
+      {%- elsif sigil == "*" -%}
+        <span class="student-author">{{ author | remove_first: "*" }}</span><sup>&dagger;</sup>
+      {%- else -%}
+        {{ author }}
+      {%- endif -%}
+      {%- unless forloop.last %}, {% endunless -%}
+    {%- endfor %} ({{ pub.year }}). {% if pub.doi %}<a href="https://doi.org/{{ pub.doi }}">{{ pub.title }}</a>{% else %}{{ pub.title }}{% endif %}. <em>{{ pub.venue }}</em>{% if pub.volume %}, {{ pub.volume }}{% endif %}{% if pub.pages %}, {{ pub.pages }}{% endif %}.{% if pub.doi %} <span class="pub-doi">doi:{{ pub.doi }}</span>{% endif %}
+  </li>
+{% endfor %}
+</ol>
 
-## Typography
+<p><small><sup>&dagger;</sup> denotes student mentee</small></p>
 
-This is a [link](http://google.com). Something *italics* and something **bold**.
-
-Here is a table
-
-Year | Award | Category
------|-------|--------
-2014 | Emmy  | Won Outstanding Lead Actor in a miniseries or a movie
-2015 | BAFTA | Nominated for Best Leading Actor for Sherlock
-2014 | Satellite | Won Best Actor miniseries or television film
-
-Here is a horizontal rule
-
----
-
-Here is a blockquote
-
-> To a great mind, nothing is little
-
-## References
-
-* Foo Bar: Head of Department, Placeholder Names, Lorem
-* John Doe: Associate Professor, Department of Computer Science, Ipsum
+<br>

@@ -1,15 +1,13 @@
-title: Researcher
-url: "https://ankitsultana.com"
-baseurl: "/researcher"
+title: Lifeng Han
+url: "http://www.math.tulane.edu/~lhan1"
+baseurl: "/~lhan1"
 
 markdown: kramdown
 #ins_logo: "./bits-logo.png"
 
 tracking_id: #
 
-footer: yes
-footer_url: "https://github.com/ankitsultana"
-footer_text: "Page design by Ankit Sultana"
+footer: no
 
 sass:
     style: compressed
@@ -17,8 +15,6 @@ sass:
 
 nav:
  - name: "About"
-   link: "/researcher/"
- - name: "Resume"
-   link: "resume.pdf"
+   link: "index"
  - name: "Contact"
    link: "contact"

@@ -1,5 +1,26 @@
 @import "vars";
 
+ol.publications {
+    li {
+        margin-bottom: 0.75em;
+    }
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+    a:hover {
+        color: $accent;
+        text-decoration: underline;
+    }
+    .student-author {
+        text-decoration: underline;
+    }
+    .pub-doi {
+        color: #888;
+        font-size: 0.9em;
+    }
+}
+
 /*
  * Basic
  */
