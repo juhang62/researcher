@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+    <title>{% if page.title %}{{ page.title }} — {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,7 +21,9 @@
         {% assign url = site.url | append: site.baseurl | append: page.url %}
     {% endif %}
     <meta name="description" content="{{ desc }}">
-    <link href='https://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
     <link rel="alternate" type="application/rss+xml" title="{{ site.title }} RSS" href="/feed.xml" />
     <link rel="stylesheet" href="{{ site.baseurl }}/css/main.css">
     {% if site.favicon %}
@@ -55,27 +57,43 @@
 </head>
 <body>
     <div class="wrapper">
-        <div class="navbar container">
-            {% if site.ins_logo %}
-                <img id="ins-logo" src="{{ site.ins_logo }}" />
-            {% endif %}
-            <a id="author-name" class="alignable pull-left" href="{{ site.url }}{{ site.baseurl }}">{{ site.title }}</a>
-            <ul id="navlist" class="alignable pull-right navbar-ul">
-                {% for x in site.nav %}
-                    {% if x.name == "Resume" %}
-                        <li class="alignable pull-left nav-list"><a target="_blank" href="{{ x.link }}">{{ x.name }}</a>
-                    {% else %}
-                        <li class="alignable pull-left nav-list"><a href="{{ x.link }}">{{ x.name }}</a>
-                    {% endif %}
-                    {% if forloop.last == false %}
-                        /
-                    {% endif %}
-                        </li>
-                {% endfor %}
-            </ul>
-        </div>
-        <div style="clear:both"></div>
-        <hr>
+        <header class="site-header">
+            <div class="navbar container">
+                {% if site.ins_logo %}
+                    <img id="ins-logo" src="{{ site.ins_logo }}" alt="" />
+                {% endif %}
+                {% assign is_home = false %}
+                {% if page.url == "/" or page.url == "/index.html" %}{% assign is_home = true %}{% endif %}
+                {% if is_home %}
+                    <h1 id="author-name" class="author-name"><a href="{{ site.url }}{{ site.baseurl }}/">{{ site.title }}</a></h1>
+                {% else %}
+                    <a id="author-name" class="author-name" href="{{ site.url }}{{ site.baseurl }}/">{{ site.title }}</a>
+                {% endif %}
+                <button type="button" class="nav-burger" aria-expanded="false" aria-controls="navlist" aria-label="Toggle menu">
+                    <span></span><span></span><span></span>
+                </button>
+                <nav class="primary-nav" aria-label="Primary">
+                    <ul id="navlist" class="navbar-ul">
+                        {% for x in site.nav %}
+                            {% if x.link contains "://" %}
+                                {% assign href = x.link %}
+                            {% else %}
+                                {% assign href = x.link | prepend: site.baseurl %}
+                            {% endif %}
+                            {% if x.name == "Resume" %}
+                                <li class="nav-list"><a target="_blank" href="{{ href }}">{{ x.name }}</a>
+                            {% else %}
+                                <li class="nav-list"><a href="{{ href }}">{{ x.name }}</a>
+                            {% endif %}
+                            {% if forloop.last == false %}
+                                <span class="nav-sep" aria-hidden="true">/</span>
+                            {% endif %}
+                                </li>
+                        {% endfor %}
+                    </ul>
+                </nav>
+            </div>
+        </header>
         {% if page.is_contact == true %}
             <div class="container content contact">
         {% else %}
@@ -90,6 +108,61 @@
                 {% endif %}
             </div>
     </div>
+    <script>
+    (function () {
+        var burger = document.querySelector('.nav-burger');
+        var menu = document.getElementById('navlist');
+        if (burger && menu) {
+            burger.addEventListener('click', function () {
+                var open = burger.getAttribute('aria-expanded') === 'true';
+                burger.setAttribute('aria-expanded', String(!open));
+            });
+            // Close the menu after picking a section anchor
+            menu.addEventListener('click', function (e) {
+                var t = e.target;
+                if (t && t.tagName === 'A') {
+                    burger.setAttribute('aria-expanded', 'false');
+                }
+            });
+        }
+    })();
+    (function () {
+        var navLinks = document.querySelectorAll('#navlist a[href*="#"]');
+        if (!navLinks.length || !('IntersectionObserver' in window)) return;
+
+        var linkById = {};
+        navLinks.forEach(function (a) {
+            var hash = (a.getAttribute('href') || '').split('#')[1];
+            if (hash) linkById[hash] = a;
+        });
+
+        var sections = [];
+        Object.keys(linkById).forEach(function (id) {
+            var el = document.getElementById(id);
+            if (el) sections.push(el);
+        });
+        if (!sections.length) return;
+
+        function setActive(id) {
+            navLinks.forEach(function (a) { a.classList.remove('is-active'); });
+            if (linkById[id]) linkById[id].classList.add('is-active');
+        }
+
+        var visible = new Set();
+        var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+                if (e.isIntersecting) visible.add(e.target.id);
+                else visible.delete(e.target.id);
+            });
+            // pick the first visible section in document order
+            for (var i = 0; i < sections.length; i++) {
+                if (visible.has(sections[i].id)) { setActive(sections[i].id); return; }
+            }
+        }, { rootMargin: '-80px 0px -65% 0px', threshold: 0 });
+
+        sections.forEach(function (s) { io.observe(s); });
+    })();
+    </script>
     {% if site.tracking_id %}
         <script>
           (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

@@ -7,3 +7,8 @@ Gemfile.lock
 vendor/
 .bundle/
 .claude/
+
+# Playwright/dev test artifacts
+.playwright-mcp/
+desktop-*.png
+mobile-*.png

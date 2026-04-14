@@ -1,60 +1,120 @@
 @import "vars";
 
+/*
+ * Prose typography
+ */
+
 .content {
-    a:hover {
-        text-decoration: underline;
+    padding-top: clamp(1.5rem, 3vw, 2.5rem);
+    padding-bottom: 4rem;
+
+    > :first-child {
+        margin-top: 0;
     }
-    ol {
-        counter-reset: list;
+
+    h1, h2, h3, h4 {
+        font-family: $serif;
+        font-weight: 600;
+        color: $ink;
+        line-height: 1.2;
+        letter-spacing: -0.01em;
     }
-    ol > li {
-        list-style-position: none;
-        position: relative;
-        list-style: none;
-        margin-top: 5px;
-        margin-bottom: 5px;
+
+    h1 {
+        font-size: clamp(1.75rem, 1.4rem + 1.6vw, 2.25rem);
+        margin: 2.5rem 0 1rem;
     }
-    ul > li {
-        margin: 5px 0 5px 0;
+
+    h2 {
+        font-size: clamp(1.25rem, 1.1rem + 0.8vw, 1.5rem);
+        margin: 2.75rem 0 0.75rem;
     }
-    ul {
-        padding: 0 20px 0 20px;;
+
+    h3 {
+        font-size: 1.1rem;
+        margin: 2rem 0 0.5rem;
     }
-    ol {
-        padding: 0 30px 0 30px;
+
+    p {
+        margin: 0 0 1.1rem;
     }
-    ol > li:before {
-        content: "[" counter(list, decimal) "] ";
-        counter-increment: list;
-        position: absolute;
-        left: -30px;
-    }
-    blockquote {
-        //border: 1px solid black;
-        border-left: 5px solid #333333;
-        margin: 20px 0 20px 0;
-        padding: 2px 8px 2px 8px;
+
+    em, i {
         font-style: italic;
     }
-    .profile-picture {
-        height: $image-size;
-        width: $image-size;
-        position: relative;
-        margin: -10px 0 0 15px;
-        float: right;
-        border-radius: 50%;
-        p & {
-            padding: 0;
-            margin: 0;
-        }
-        @media (max-width: $small-width) {
-            img {
-                margin-top: -5px;
+
+    strong, b {
+        font-weight: 600;
+    }
+
+    a:hover {
+        text-decoration: none;
+    }
+
+    ol, ul {
+        margin: 1rem 0 1.25rem;
+        padding-left: 1.5rem;
+    }
+
+    ul {
+        list-style: disc;
+    }
+
+    ul > li,
+    ol > li {
+        margin: 0.25rem 0;
+    }
+
+    /* Numbered publication list: hanging brackets */
+    ol.publications {
+        counter-reset: pub;
+        list-style: none;
+        padding-left: 2.25rem;
+
+        > li {
+            position: relative;
+            counter-increment: pub;
+
+            &::before {
+                content: "[" counter(pub) "]";
+                position: absolute;
+                left: -2.25rem;
+                width: 2rem;
+                color: $muted;
+                font-variant-numeric: tabular-nums;
             }
         }
     }
+
+    blockquote {
+        border-left: 2px solid $rule;
+        margin: 1.5rem 0;
+        padding: 0.25rem 0 0.25rem 1rem;
+        color: $muted;
+        font-style: italic;
+    }
+
     img {
-        text-align: center;
-        width: 100%;
+        max-width: 100%;
+        height: auto;
+    }
+
+    small {
+        color: $muted;
+        font-size: 0.875rem;
+    }
+
+    /* Footnote marker used in the publication mentee note */
+    sup {
+        font-size: 0.7em;
+        vertical-align: super;
+        line-height: 0;
+    }
+}
+
+/* Contact page: same rhythm */
+.content.contact {
+    ol {
+        padding-left: 1.5rem;
     }
 }
